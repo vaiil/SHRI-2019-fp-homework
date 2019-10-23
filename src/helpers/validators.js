@@ -1,4 +1,4 @@
-/* 
+/*
  * Основная задача — написать самому, или найти в FP библиотеках функции anyPass/allPass
  * Эти функции/их аналоги есть и в ramda и в lodash
  *
@@ -19,7 +19,7 @@
  * const lengthGreaterThenOne = x => x.length > 1;
  */
 
-import {replace, length, compose, test} from 'ramda';
+import {replace, length, compose, test, lt, curry} from 'ramda';
 
 const replaceNumbers = replace(/[^0-9]/g, '');
 
@@ -31,6 +31,7 @@ const containsOnlyEng = test(/^[a-zA-Z0-9.+]+$/);
 /**
  * Функции для проверки выполнения условий с количеством цифр в строке
  */
+const numbersCountMoreThan = curry((number, value) => compose(lt(number), getNumbersCount)(value))
 
 /**
  * Функции для проверки выполнения условий с длиной строки
