@@ -29,12 +29,15 @@ const containsOnlyEng = test(/^[a-zA-Z0-9.+]+$/)
 
 const moreThanOne = gt(__, 1)
 const moreThanTwo = gt(__, 2)
-const moreThanThree = gt(__, 2)
+const moreThanThree = gt(__, 3)
+const moreThanFour = gt(__, 4)
 const moreThanFive = gt(__, 5)
-const moreThanEight = gt(__, 5)
+const moreThanEight = gt(__, 8)
 
 const lessThanTwo = lt(__, 2)
+const lessThanFour = lt(__, 4)
 const lessThanFive = lt(__, 5)
+const lessThanEight = lt(__, 8)
 const lessThanTen = lt(__, 10)
 
 /**
@@ -103,7 +106,15 @@ export const validateFieldN8 = anyPass([
 ])
 
 // 9. Длина < 8, кол-во цифр > 4 шт. только англ
-export const validateFieldN9 = () => false
+export const validateFieldN9 = allPass([
+  compose(lessThanEight, length),
+  compose(moreThanFour, length),
+  containsOnlyEng
+])
 
 // 10. Длина < 4 или кол-во цифр > 2 шт. или только англ
-export const validateFieldN10 = () => false
+export const validateFieldN10 = anyPass([
+  compose(lessThanFour, length),
+  compose(moreThanTwo, getNumbersCount),
+  containsOnlyEng
+])
