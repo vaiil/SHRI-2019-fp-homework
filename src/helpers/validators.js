@@ -19,7 +19,7 @@
  * const lengthGreaterThenOne = x => x.length > 1;
  */
 
-import { replace, length, compose, test, lt, curry, gt, __, allPass, match, includes, not, anyPass } from 'ramda'
+import { replace, length, compose, test, lt,  gt, __, allPass, includes, not, anyPass } from 'ramda'
 
 const replaceNumbers = replace(/[^0-9]/g, '')
 
