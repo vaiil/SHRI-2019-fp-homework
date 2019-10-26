@@ -37,7 +37,6 @@ export default compose(
     },
   }),
   withProps((props) => {
-    console.log(props)
     return {
       ...props,
       style: {
