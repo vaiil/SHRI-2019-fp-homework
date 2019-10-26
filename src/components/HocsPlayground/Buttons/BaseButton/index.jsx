@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 
 
 const getButtonClassName = (size, color) => cn(
-    styles.button, 
+    styles.button,
     {
         [styles.buttonSizeSmall]: size === 'small',
         [styles.buttonSizeMedium]: size === 'medium',
@@ -21,9 +21,10 @@ const BaseButton = ({
     onClick,
     onMouseOn,
     children,
+  style,
 }) => {
     return (
-        <button onMouseUp={onMouseOn} onClick={onClick} className={getButtonClassName(size, color)}>
+        <button onMouseUp={onMouseOn} onClick={onClick} className={getButtonClassName(size, color)} style={style}>
             {children}
         </button>
     );
