@@ -5,6 +5,8 @@ import { compose, withHandlers, withProps } from 'recompose'
 import BaseButton from './BaseButton'
 import withCounter from '../hocs/withCounter'
 import React from 'react'
+import withLargeSize from '../hocs/withLargeSize'
+import withPrimaryColor from '../hocs/withPrimaryColor'
 
 function withStyleWrapper (WrappedComponent) {
   return class extends React.Component {
@@ -19,6 +21,8 @@ function withStyleWrapper (WrappedComponent) {
 }
 
 export default compose(
+  withLargeSize,
+  withPrimaryColor,
   withCounter,
   withHandlers({
     onClick: ({ setOuterColor, setInnerColor, increment, counter, reset }) => () => {
