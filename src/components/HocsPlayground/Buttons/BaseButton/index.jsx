@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 
 
 const getButtonClassName = (size, color) => cn(
-    styles.button, 
+    styles.button,
     {
         [styles.buttonSizeSmall]: size === 'small',
         [styles.buttonSizeMedium]: size === 'medium',
