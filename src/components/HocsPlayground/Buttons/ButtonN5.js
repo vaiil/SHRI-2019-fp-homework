@@ -4,6 +4,19 @@
 import { compose, withHandlers, withProps } from 'recompose'
 import BaseButton from './BaseButton'
 import withCounter from '../hocs/withCounter'
+import React from 'react'
+
+function withStyleWrapper (WrappedComponent) {
+  return class extends React.Component {
+    constructor (props) {
+      super(props)
+    }
+
+    render () {
+      return <div style={this.props.style}><WrappedComponent {...this.props} /></div>
+    }
+  }
+}
 
 export default compose(
   withCounter,
@@ -24,8 +37,10 @@ export default compose(
     return {
       ...props,
       style: {
+        display: 'inline-block',
         transform: `rotate(${props.counter * -30}deg)`
       }
     }
-  })
+  }),
+  withStyleWrapper
 )(BaseButton)

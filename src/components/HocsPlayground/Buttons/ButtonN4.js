@@ -7,7 +7,7 @@ import BaseButton from './BaseButton'
 import withCounter from '../hocs/withCounter'
 import withSetBothColor from '../hocs/withSetBothColor'
 
-function withBeforeCounter (WrappedComponent) {
+function withCounterBefore (WrappedComponent) {
   return class extends React.Component {
     constructor (props) {
       super(props)
@@ -33,5 +33,5 @@ export default compose(
       }
     },
   }),
-  withBeforeCounter
+  withCounterBefore
 )(BaseButton)
