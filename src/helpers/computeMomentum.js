@@ -72,8 +72,8 @@ const calcMass = compose(
 )
 
 const calcVelocity = compose(
-  () => {},
-  //
+  velocityFormula,
+  propHeight
 )
 
 const computeMomentum = compose(
