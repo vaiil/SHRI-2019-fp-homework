@@ -19,7 +19,7 @@
  * const lengthGreaterThenOne = x => x.length > 1;
  */
 
-import { replace, length, compose, test, lt,  gt, __, allPass, includes, not, anyPass } from 'ramda'
+import { replace, length, compose, test, lt, gt, __, allPass, includes, not, anyPass } from 'ramda'
 
 const replaceNumbers = replace(/[^0-9]/g, '')
 
@@ -88,7 +88,7 @@ export const validateFieldN5 = allPass([
 // 6. Длина > 5, или одна из цифр равна "7"
 export const validateFieldN6 = anyPass([
   compose(moreThanFive, length),
-  compose(not, includes('7'))
+  includes('7')
 ])
 
 // 7. Длина > 8 и кол-во цифр > 3 шт. и только англ
