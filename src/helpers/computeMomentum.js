@@ -1,4 +1,4 @@
-import { prop, cond, compose, equals } from 'ramda'
+import { prop, cond, compose, equals, applySpec } from 'ramda'
 
 import { SHAPES } from '../constants'
 
@@ -67,8 +67,11 @@ const calcVolume = cond([
 ])
 
 const calcMass = compose(
-  () => {},
-  //
+  massFormula,
+  applySpec({
+    volume: calcVolume,
+    density: propDensity
+  })
 )
 
 const calcVelocity = compose(
@@ -77,8 +80,12 @@ const calcVelocity = compose(
 )
 
 const computeMomentum = compose(
-  () => {},
-  //
+  round,
+  momentumFormula,
+  applySpec({
+    mass: calcMass,
+    velocity: calcVelocity
+  })
 )
 
 export default computeMomentum
