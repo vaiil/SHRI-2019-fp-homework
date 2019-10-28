@@ -10,10 +10,6 @@ import withPrimaryColor from '../hocs/withPrimaryColor'
 
 function withStyleWrapper (WrappedComponent) {
   return class extends React.Component {
-    constructor (props) {
-      super(props)
-    }
-
     render () {
       return <div style={this.props.style}><WrappedComponent {...this.props} /></div>
     }

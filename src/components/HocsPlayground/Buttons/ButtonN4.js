@@ -9,10 +9,6 @@ import withSetBothColor from '../hocs/withSetBothColor'
 
 function withCounterBefore (WrappedComponent) {
   return class extends React.Component {
-    constructor (props) {
-      super(props)
-    }
-
     render () {
       return <>{this.props.counter}<WrappedComponent {...this.props} /></>
     }
