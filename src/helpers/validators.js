@@ -108,7 +108,7 @@ export const validateFieldN8 = anyPass([
 // 9. Длина < 8, кол-во цифр > 4 шт. только англ
 export const validateFieldN9 = allPass([
   compose(lessThanEight, length),
-  compose(moreThanFour, length),
+  compose(moreThanFour, getNumbersCount),
   containsOnlyEng
 ])
 
